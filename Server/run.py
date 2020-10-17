@@ -12,7 +12,9 @@ def check_txt() -> bool:
         return False
 
 if __name__ == "__main__":
+    os.system('clear')
     if not(check_txt()):
+        print(f'pls create dir and db file...')
         exit(0)        
     with open('dir.txt', 'r') as dir_file:
         for item in dir_file:
