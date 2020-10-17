@@ -25,7 +25,7 @@ def make_backup_dir(directory: str) -> None:
     del temp
 
 def make_backup_db(db: str) -> None:
-    pass
+    os.system(f'sudo mysqldump {db} > {BACKUP_DIR}/Databases/{db}.sql')
 
 if __name__ == "__main__":
     os.system('clear')
@@ -46,3 +46,6 @@ if __name__ == "__main__":
 
     for directory in tqdm(dir_list, desc='Backup Directory...'):
         make_backup_dir(directory)
+
+    for db_name in tqdm(db_list, desc='Backup Database...'):
+        make_backup_db(db_name)
