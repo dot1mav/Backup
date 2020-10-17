@@ -1,9 +1,10 @@
 /venv
 /.idea
 /.vscode
+/.vs
+/bk
 __pycache__/
 dir.txt
 db.txt
 *.sln
-/.vs
-/bk
+*.7z
