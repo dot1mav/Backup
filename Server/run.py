@@ -30,7 +30,8 @@ if __name__ == "__main__":
     os.system('clear')
     if not(check_txt()):
         print(f'pls create dir and db file...')
-        exit(0)        
+        exit(0)
+    create_temp()        
     with open('dir.txt', 'r') as dir_file:
         for item in dir_file:
             dir_list.append(str(item).replace('\n',''))
