@@ -64,6 +64,6 @@ if __name__ == "__main__":
         make_backup_db(db_name)
 
     make_7z_backup()
-    srv = Conn()
+    srv: Conn = Conn()
     os.system('clear')
     srv.Srv_Connection(BACKUP_7Z_NAME)
