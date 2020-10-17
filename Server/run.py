@@ -15,10 +15,10 @@ def check_txt() -> bool:
 
 def create_temp() -> None:
     if not(os.path.isdir(BACKUP_DIR)):
-        os.mkdir(BACKUP_DIR)
+        os.system(f'mkdir {BACKUP_DIR}')
 
 def make_backup_dir(dir: str) -> None:
-    os.system(f'cp {dir} {BACKUP_DIR}')
+    os.system(f'cp -r {dir} {BACKUP_DIR}')
 
 def make_backup_db(db: str) -> None:
     pass
