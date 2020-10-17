@@ -24,6 +24,12 @@ def create_temp() -> None:
         os.system(f'mkdir {BACKUP_DIR}/directorys')
         os.system(f'mkdir {BACKUP_DIR}/Databases')
 
+def clear_temp() -> None:
+    os.system('clear')
+    print('clean temp')
+    os.system(f'rm -rf {BACKUP_DIR}')
+    os.system(f'rm -f {BACKUP_7Z_NAME}')
+
 def make_backup_dir(directory: str) -> None:
     temp: str = directory.split('/')[-1]
     os.system(f'cp -r {directory} {BACKUP_DIR}/directorys/{temp}')
@@ -66,4 +72,9 @@ if __name__ == "__main__":
     make_7z_backup()
     srv: Conn = Conn()
     os.system('clear')
-    srv.Srv_Connection(BACKUP_7Z_NAME)
+    try:
+        srv.Srv_Connection(BACKUP_7Z_NAME)
+    except KeyboardInterrupt:
+        clear_temp()
+    finally:
+        clear_temp()
