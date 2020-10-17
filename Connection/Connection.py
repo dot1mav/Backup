@@ -21,10 +21,8 @@ class Connection(object):
         s.connect(("8.8.8.8", 80))
         ip = s.getsockname()[0]
         s.close()
-
         del s
-
-        os.system('croc --relay "{ip}:7779" send {file_name}')
+        os.system(f'croc --relay "{ip}:7779" send {file_name}')
 
     def Clt_Connection(self) -> None:
         pass
