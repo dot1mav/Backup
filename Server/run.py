@@ -16,10 +16,12 @@ def check_txt() -> bool:
 def create_temp() -> None:
     if not(os.path.isdir(BACKUP_DIR)):
         os.system(f'mkdir {BACKUP_DIR}')
+        os.system(f'mkdir {BACKUP_DIR}/directorys')
+        os.system(f'mkdir {BACKUP_DIR}/Databases')
 
 def make_backup_dir(directory: str) -> None:
     temp: str = directory.split('/')[-1]
-    os.system(f'cp -r {directory} {BACKUP_DIR}/{temp}')
+    os.system(f'cp -r {directory} {BACKUP_DIR}/directorys/{temp}')
     del temp
 
 def make_backup_db(db: str) -> None:
