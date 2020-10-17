@@ -19,7 +19,6 @@ def create_temp() -> None:
 
 def make_backup_dir(directory: str) -> None:
     temp: str = directory.split('/')[-1]
-    os.system(f'mkdir {BACKUP_DIR}/{temp}')
     os.system(f'cp -r {directory} {BACKUP_DIR}/{temp}')
     del temp
 
