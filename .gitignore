@@ -6,3 +6,4 @@ dir.txt
 db.txt
 *.sln
 /.vs
+/bk
