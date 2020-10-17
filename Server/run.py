@@ -1,10 +1,15 @@
 import os
+import py7zr
+import time
+
 from tqdm import tqdm
+from Connection import Conn
 
 # var
 db_list: list = []
 dir_list: list = []
 BACKUP_DIR: str = 'bk'
+BACKUP_7Z_NAME = 'bk.7z'
 
 #function
 def check_txt() -> bool:
@@ -23,6 +28,14 @@ def make_backup_dir(directory: str) -> None:
     temp: str = directory.split('/')[-1]
     os.system(f'cp -r {directory} {BACKUP_DIR}/directorys/{temp}')
     del temp
+
+def make_7z_backup() -> None:
+    os.system('clear')
+    print('Making 7z file')
+    with py7zr.SevenZipFile(BACKUP_7Z_NAME, 'w') as archive:
+        archive.writeall(BACKUP_DIR)
+    print('done')
+    time.sleep(1)
 
 def make_backup_db(db: str) -> None:
     os.system(f'sudo mysqldump {db} > {BACKUP_DIR}/Databases/{db}.sql')
@@ -49,3 +62,8 @@ if __name__ == "__main__":
 
     for db_name in tqdm(db_list, desc='Backup Database...'):
         make_backup_db(db_name)
+
+    make_7z_backup()
+    srv = Conn()
+    os.system('clear')
+    srv.Srv_Connection(BACKUP_7Z_NAME)
