@@ -1,4 +1,5 @@
 import os
+import tqdm
 
 # var
 db_list: list = []
@@ -10,6 +11,16 @@ def check_txt() -> bool:
         return True
     else:
         return False
+
+def create_temp() -> None:
+    if not(os.path.isdir('bk')):
+        os.mkdir('bk')
+
+def make_backup_dir(dir: str) -> None:
+    pass
+
+def make_backup_db(db: str) -> None:
+    pass
 
 if __name__ == "__main__":
     os.system('clear')
@@ -26,3 +37,6 @@ if __name__ == "__main__":
         db_file.close()
     
     print(f'{db_list}\n{dir_list}')
+
+    for dir in dir_list:
+        pass
