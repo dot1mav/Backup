@@ -17,8 +17,11 @@ def create_temp() -> None:
     if not(os.path.isdir(BACKUP_DIR)):
         os.system(f'mkdir {BACKUP_DIR}')
 
-def make_backup_dir(dir: str) -> None:
-    os.system(f'cp -r {dir} {BACKUP_DIR}')
+def make_backup_dir(directory: str) -> None:
+    temp: str = directory.split('/')[-1]
+    os.system(f'mkdir {BACKUP_DIR}/{temp}')
+    os.system(f'cp -r {directory} {BACKUP_DIR}/{temp}')
+    del temp
 
 def make_backup_db(db: str) -> None:
     pass
@@ -39,5 +42,5 @@ if __name__ == "__main__":
     
     print(f'{db_list}\n{dir_list}')
 
-    for dir in tqdm(dir_list, desc='Backup Directory...'):
-        make_backup_dir(dir)
+    for directory in tqdm(dir_list, desc='Backup Directory...'):
+        make_backup_dir(directory)
