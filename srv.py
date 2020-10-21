@@ -45,7 +45,7 @@ def make_7z_backup() -> None:
     os.system('clear')
     print('Making 7z file')
     with py7zr.SevenZipFile(BACKUP_7Z_NAME, 'w') as archive:
-        archive.writeall(BACKUP_DIR)
+        tqdm(archive.writeall(BACKUP_DIR))
     print('done')
     time.sleep(1)
 
