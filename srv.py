@@ -9,7 +9,7 @@ from Connection import Conn
 db_list: list = []
 dir_list: list = []
 BACKUP_DIR: str = 'bk'
-BACKUP_7Z_NAME = 'bk.7z'
+BACKUP_7Z_NAMEL: str = 'bk.7z'
 
 # function
 
